@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Load extract_utils and do some sanity checks
+MY_DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
+
 # unused realpath
 # SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 

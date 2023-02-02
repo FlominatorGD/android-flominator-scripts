@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Load extract_utils and do some sanity checks
+MY_DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
+
 # make sure makelib-tmp.sh is created
 touch makelib-tmp.sh
 
