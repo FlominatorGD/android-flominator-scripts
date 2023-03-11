@@ -10,10 +10,10 @@ into a shellscript formart, that can test buildability of them as PRODUCT_PACKAD
 
 # Useage instructions
 
- dir
+ dir:
 $cd flominator
 
-  recrusive script permission
+  recrusive script permission:
 $chmod + x *
 
   example:
