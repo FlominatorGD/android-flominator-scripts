@@ -8,14 +8,14 @@ Current scripts:
 a script that turns every .so file in subdirs of a ROM DUMP
 into a shellscript formart, that can test buildability of them as PRODUCT_PACKADGES
 
-# Useage instructions
+//Useage instructions
 
-# dir
+//dir
 cd flominator
 
-# recrusive script permission
+//recrusive script permission
 chmod + x *
 
-example:
+//example:
 ./makelib-init.sh
 
