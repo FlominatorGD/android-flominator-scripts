@@ -11,11 +11,11 @@ into a shellscript formart, that can test buildability of them as PRODUCT_PACKAD
 //Useage instructions
 
 //dir
-cd flominator
+$cd flominator
 
 //recrusive script permission
-chmod + x *
+$chmod + x *
 
 //example:
-./makelib-init.sh
+$./makelib-init.sh
 
