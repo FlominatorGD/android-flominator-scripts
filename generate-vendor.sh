@@ -23,15 +23,14 @@ mkdir -p "${PROJECT_DIR}"/out
 
 cp "${INPUTLISTDIR}"/proprietary-blobs.txt "${TEMPDIR}"/proprietary-blobs.txt
 
-# echo 'PRODUCT_COPY_FILES += \' > "${TEMPDIR}"/b/0.txt
 cat ${SCRPTDIR}/temp/proprietary-blobs.txt | while read line || [[ -n $line ]];
 do
    i=$((i+1))
    filename=$(basename -- "$line")
    fullname="$line"
-   printf '$(LOCAL_PATH)/proprietary/' > "${TEMPDIR}"/a/2.txt
+   printf '$(LOCAL_PATH)/proprietary/vendor' > "${TEMPDIR}"/a/2.txt
    printf "$fullname"  >  "${TEMPDIR}"/a/3.txt
-   printf ':$(TARGET_COPY_OUT_VENDOR)' > "${TEMPDIR}"/a/4.txt
+   printf ':$(TARGET_COPY_OUT_VENDOR)/' > "${TEMPDIR}"/a/4.txt
    printf "$fullname" > "${TEMPDIR}"/a/6.txt
    printf ' \' > "${TEMPDIR}"/a/7.txt
    printf "\n" > "${TEMPDIR}"/a/8.txt
