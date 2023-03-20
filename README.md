@@ -8,7 +8,7 @@ Current scripts:
 a script that turns every .so file in subdirs of a ROM DUMP
 into a shellscript formart, that can test buildability of them as PRODUCT_PACKADGES
 
-# Useage instructions
+# perpare instructions
 
  dir:
 $cd flominator
@@ -16,6 +16,13 @@ $cd flominator
   recrusive script permission:
 $chmod + x *
 
-  example:
+# usage instuctions makelib-init.sh
+
 $./makelib-init.sh
+
+# usage instuctions generate-vendor.sh
+
+put a proprietary-blobs.txt in $input/ folder.
+
+$./generate-vendor.sh
 
