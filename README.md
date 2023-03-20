@@ -23,7 +23,8 @@ $./makelib-init.sh
 # usage instuctions generate-vendor.sh
 
 How to gen qick gen a proprietary-blobs.txt list from a dir containing your vendor files:
-find rom/ -type f -printf '%P\n' | sort > proprietary-blobs.txt
+
+$find rom/ -type f -printf '%P\n' | sort > proprietary-blobs.txt
 
 put a proprietary-blobs.txt in $input/ folder.
 
