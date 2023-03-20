@@ -28,7 +28,7 @@ do
    i=$((i+1))
    filename=$(basename -- "$line")
    fullname="$line"
-   printf '$(LOCAL_PATH)/proprietary/vendor' > "${TEMPDIR}"/a/2.txt
+   printf '$(LOCAL_PATH)/proprietary/vendor/' > "${TEMPDIR}"/a/2.txt
    printf "$fullname"  >  "${TEMPDIR}"/a/3.txt
    printf ':$(TARGET_COPY_OUT_VENDOR)/' > "${TEMPDIR}"/a/4.txt
    printf "$fullname" > "${TEMPDIR}"/a/6.txt
