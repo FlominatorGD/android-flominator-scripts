@@ -14,7 +14,7 @@ into a shellscript formart, that can test buildability of them as PRODUCT_PACKAD
 $cd flominator
 
   recrusive script permission:
-$chmod + x *
+$chmod +x *
 
 # usage instuctions makelib-init.sh
 
@@ -24,7 +24,7 @@ $./makelib-init.sh
 
 How to gen qick gen a proprietary-blobs.txt list FOR THIS SCRIPT from a existing vendor dir with vendor files:
 
-$find rom/vendor -type f -printf '%P\n' | sort > proprietary-blobs.txt
+$find vendor -type f -printf '%P\n' | sort > proprietary-blobs.txt
 
 put a proprietary-blobs.txt in $input/ folder.
 
