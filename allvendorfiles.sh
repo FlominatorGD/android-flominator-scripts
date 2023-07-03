@@ -3,7 +3,7 @@
 # all vendor files
 create_all_files_vendor() {
   input_folder="$1"
-  output_file="all_files_vendor.txt"
+  output_file="proprietary-blobs.txt"
   show_filenames="$2"
   remove_extensions="$3"
 
@@ -22,11 +22,24 @@ create_all_files_vendor() {
   fi
 
   if [[ -s "$output_file" ]]; then
-    echo "The 'all_files_vendor.txt' has been created from the folder: $input_folder!"
+    echo "The 'proprietary-blobs.txt' has been created from the folder: $input_folder!"
   else
     echo "No files found in the folder: $input_folder."
     rm "$output_file" # Remove the empty file
   fi
+}
+
+cut_before_vendor_string() {
+    local input_file="proprietary-blobs.txt"
+    local output_file="proprietary-blobs.txt"
+
+    # Check if input file exists
+    if [[ -f $input_file ]]; then
+        # Using sed to cut out everything before 'vendor/' and writing the result to output file
+        sed 's/.*vendor\///' "$input_file" > "$output_file"
+    else
+        echo "Input file '$input_file' does not exist."
+    fi
 }
 
 # Function to display script usage
@@ -37,7 +50,7 @@ display_usage() {
   echo "  remove_extensions (optional): Set to 'true' to remove file extensions from file names (default: false)"
   echo ""
   echo "Example usage:"
-  echo "  $0 vendor true true  # Show only file names without extensions"
+  echo "  $0 vendor true true  # Show only file names without file extensions"
   echo "  $0 vendor           # Show full file paths (default behavior)"
 }
 
@@ -53,4 +66,8 @@ if [[ ! -d "$input_folder" ]]; then
   exit 1
 fi
 
+# with full path
 create_all_files_vendor "$input_folder" "$2" "$3"
+
+# cut full path
+cut_before_vendor_string
