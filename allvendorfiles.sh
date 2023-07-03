@@ -31,7 +31,7 @@ create_all_files_vendor() {
 
 cut_before_vendor_string() {
     local input_file="proprietary-blobs.txt"
-    local output_file="proprietary-blobs.txt"
+    local output_file="proprietary-blobsi.txt"
 
     # Check if input file exists
     if [[ -f $input_file ]]; then
@@ -40,6 +40,9 @@ cut_before_vendor_string() {
     else
         echo "Input file '$input_file' does not exist."
     fi
+    rm -r proprietary-blobs.txt
+    cat proprietary-blobsi.txt > proprietary-blobs.txt
+    rm -r proprietary-blobsi.txt
 }
 
 # Function to display script usage
