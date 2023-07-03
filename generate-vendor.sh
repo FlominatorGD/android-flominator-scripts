@@ -67,7 +67,7 @@ create_out_dirs() {
 
 copy_files() {
     local PROPRIETARY_BLOBS="proprietary-blobs.txt"
-    local INPUT_FOLDER="vendor"
+    local INPUT_FOLDER="${INPUTFOLDER}"
     local OUTPUT_DIR="${OUTDIR}/proprietary/vendor"
     local DIR_PATHS="out/dir_paths.txt"
 
@@ -80,7 +80,6 @@ copy_files() {
 
             # Check if the file exists in the input folder
             if [[ -f "${INPUT_FOLDER}/${filepath}" ]]; then
-                # mkdir -p "out/proprietary/vendor/${filepath}"
                 # Copy the file to the output directory
                 cp -r "${INPUT_FOLDER}/${filepath}" "${OUTPUT_DIR}/${filepath}"
                 echo "File ${filepath} has been copied."
