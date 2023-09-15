@@ -58,7 +58,7 @@ create_out_dirs() {
         # Read each line in the dir_paths.txt file
         while IFS= read -r dir_path || [[ -n $dir_path ]]; do
             # Create the directory path within the output directory
-            mkdir -p "${OUTPUT_DIR}/proprietary/vendor/${dir_path}"
+            mkdir -p "${OUTPUT_DIR}/proprietary/${dir_path}"
             echo "Created directory: ${OUTPUT_DIR}/${dir_path}"
         done < "$DIR_PATHS"
     else
@@ -67,7 +67,7 @@ create_out_dirs() {
 }
 
 copy_files() {
-    local OUTPUT_DIR="${OUTDIR}/proprietary/vendor"
+    local OUTPUT_DIR="${OUTDIR}/proprietary"
     local DIR_PATHS="out/dir_paths.txt"
 
     # Check if proprietary-blobs.txt file exists
