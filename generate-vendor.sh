@@ -13,9 +13,10 @@ OUTDIR="${PROJECT_DIR}out"
 
 VENDORPATH="vendor/${DEVICEMANUFACTURE}/${DEVICECODENAME}"
 LOCAL_PATH_PRINT="${VENDORPATH}"
+PROPRIETARY_BLOBS="${INPUTLISTFILE}"
 
 generate_dir_paths() {
-    local PROPRIETARY_BLOBS="proprietary-blobs.txt"
+    PROPRIETARY_BLOBS=${INPUTLISTFILE}
     local OUTPUT_FILE="temp/dir_paths.txt"
 
     # Check if proprietary-blobs.txt file exists
@@ -44,7 +45,7 @@ generate_dir_paths() {
         printf "%s\n" "${unique_dir_paths[@]}" > "$OUTPUT_FILE"
         echo "Directory paths have been generated and written to $OUTPUT_FILE"
     else
-        echo "File 'proprietary-blobs.txt' does not exist."
+        echo "File "${INPUTLISTFILE}" does not exist."
     fi
 }
 
@@ -66,8 +67,6 @@ create_out_dirs() {
 }
 
 copy_files() {
-    local PROPRIETARY_BLOBS="proprietary-blobs.txt"
-    local INPUT_FOLDER="${INPUTFOLDER}"
     local OUTPUT_DIR="${OUTDIR}/proprietary/vendor"
     local DIR_PATHS="out/dir_paths.txt"
 
@@ -79,9 +78,9 @@ copy_files() {
             filepath="$(echo -e "${filepath}" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
 
             # Check if the file exists in the input folder
-            if [[ -f "${INPUT_FOLDER}/${filepath}" ]]; then
+            if [[ -f "${INPUTFOLDER}/${filepath}" ]]; then
                 # Copy the file to the output directory
-                cp -r "${INPUT_FOLDER}/${filepath}" "${OUTPUT_DIR}/${filepath}"
+                cp -r "${INPUTFOLDER}/${filepath}" "${OUTPUT_DIR}/${filepath}"
                 echo "File ${filepath} has been copied."
             else
                 echo "File ${filepath} does not exist in the input folder."
@@ -150,7 +149,6 @@ add_local_path() {
 }
 
 generate_vendor_mk() {
-    local PROPRIETARY_BLOBS="proprietary-blobs.txt"
     local OUTPUT_FILE="${OUTDIR}/${DEVICECODENAME}-vendor.mk"
     local VENDORPATH="vendor/${DEVICEMANUFACTURE}/${DEVICECODENAME}/proprietary/vendor"
 
@@ -177,7 +175,6 @@ prepare_working_space(){
 
 SCRPTDIR="${PROJECT_DIR}"
 #    INPUTLISTFILE=""
-INPUTFOLDER="vendor"
 TEMPDIR="${PROJECT_DIR}/temp"
 #    DEVICECODENAME=""
 
