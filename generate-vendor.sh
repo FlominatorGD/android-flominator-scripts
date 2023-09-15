@@ -150,7 +150,7 @@ add_local_path() {
 
 generate_vendor_mk() {
     local OUTPUT_FILE="${OUTDIR}/${DEVICECODENAME}-vendor.mk"
-    local VENDORPATH="vendor/${DEVICEMANUFACTURE}/${DEVICECODENAME}/proprietary/vendor"
+    local VENDORPATH="vendor/${DEVICEMANUFACTURE}/${DEVICECODENAME}/proprietary"
 
     # Check if the proprietary-blobs.txt file exists
     if [[ -f $PROPRIETARY_BLOBS ]]; then
