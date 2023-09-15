@@ -28,5 +28,5 @@ $find vendor -type f -printf '%P\n' | sort > proprietary-blobs.txt
 
 put a proprietary-blobs.txt in $input/ folder.
 
-$./generate-vendor.sh
+$./generate-vendor.sh -h for usage instructions
 
